@@ -26,3 +26,8 @@ edges = [
     (6, 8, 11),  # Achimota - Kwabenya
     (7, 8, 7),  # Pokuase - Kwabenya
 ]
+
+
+if __name__ == "__main__":
+    print("Nodes:", nodes)
+    print("Edges:", edges)
