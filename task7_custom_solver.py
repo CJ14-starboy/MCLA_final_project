@@ -26,25 +26,29 @@ print(f'\nfiedler value = {fiedler_value:.6f}')
 print('\n DIRICHLET BOUNDARY-VALUE SOLVER')
 print('='*60)
 
-def solve_dirichlet(i,boundary_nodes,boundary_values):
-     n=L.shape[0]
-     free_nodes=[]
-     for i in range(n):
-         if i not in boundary_nodes:
-             free_nodes.append(i)
-             
-     laplacian_ff = L[np.ix_(free_nodes,free_nodes)]
-     laplacian_fb=L[np.ix_(free_nodes,boundary_nodes)]
-     x_f=np.linalg.solve(laplacian_ff,-laplacian_fb @ boundary_values)
-     x=np.zeros(n)
-     x[boundary_nodes]=boundary_values
-     x[free_nodes]=x_f
-     return x,free_nodes
-     
-boundary_nodes=[3,7]
-boundary_values=np.array([0.0,100.0])
+def solve_dirichlet(boundary_nodes, boundary_values):
+    n = L.shape[0]
+    free_nodes = []
+    for node_idx in range(n):
+        if node_idx not in boundary_nodes:
+            free_nodes.append(node_idx)
+            
+    laplacian_ff = L[np.ix_(free_nodes, free_nodes)]
+    laplacian_fb = L[np.ix_(free_nodes, boundary_nodes)]
+    
+    x_f = np.linalg.solve(laplacian_ff, -laplacian_fb @ boundary_values)
+    
+    x = np.zeros(n)
+    x[boundary_nodes] = boundary_values
+    x[free_nodes] = x_f
+    return x, free_nodes
 
-x,free_nodes=solve_dirichlet(L,boundary_nodes,boundary_values)
+boundary_nodes = [3, 7]
+boundary_values = np.array([0.0, 100.0])
+
+
+x, free_nodes = solve_dirichlet(boundary_nodes, boundary_values)
+
 print('Boundary nodes:',boundary_nodes)
 print('Free nodes:',free_nodes)
 print('\n Harmonic values:')
