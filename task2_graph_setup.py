@@ -62,7 +62,7 @@ def print_matrix(M, title, row_labels = None, col_labels = None, fmt = "{:6.1f}"
     print(f"\n{title}  ({M.shape[0]} x {M.shape[1]})")
     print("-" * (12 + 7 * M.shape[1]))
     if col_labels is not None:
-        header = "" * 12 + "".join(f"{c:>7}" for c in col_labels)
+        header = " " * 12 + "".join(f"{c:>7}" for c in col_labels)
         print(header)
     for r in range(M.shape[0]):
         label = row_labels[r] if row_labels is not None else str(r)
