@@ -15,9 +15,6 @@ L_sub = n_p.subtract(D_sub, A_sub)
 subvalues, subvectors = n_p.linalg.eigh(L_sub)
 
 
-
-# print("Compare to hand-derived: \n λ1 =\n λ2 =\n, λ3 =\n, λ4= ")
-
 # Computation for Main Graph
 from task2_graph_setup import A,D,L
 l_values, l_vectors = n_p.linalg.eigh(L)
@@ -43,8 +40,6 @@ for i, val in enumerate(fiedler_vector):
         cluster_2.append(towns)
 
 
-
-
 #Displaying of results
 print("-----Results-----")
 print("-----------------")
@@ -61,7 +56,8 @@ print("---------")
 print("Eigenvectors:")
 for i2, val2 in enumerate(subvectors, start=1):
     print(f"V{i2}: {val2}")
-
+print()
+print("Hand-derived eigenvalues: \n λ1 = 0\n λ2 = 52.57431242\n λ3 = 12.99446922\n λ4 = 8.43121835")
 print()
 print("---------")
 print()
@@ -73,6 +69,7 @@ print(f"Fiedler vector: {fiedler_vector}")
 print()
 print("Cluster 1:", cluster_1)
 print("Cluster 2:", cluster_2)
+
 
 
 #Visualization of partition
