@@ -165,7 +165,7 @@ def plot_3d_spatial(simulator, target_t=3.0, dt=0.01):
     ax3d.text(x, y, z + 0.008, node, fontsize=8, ha="center")
 
   ax3d.set_title(
-      f"3D Spatial Diffusion Snapshot at t = {target_t}",
+      f"Diffusion Snapshot at t = {target_t}",
       fontsize=12,
       fontweight="bold",
   )
