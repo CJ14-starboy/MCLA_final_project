@@ -1,4 +1,5 @@
 import numpy as np
+from task1_network_setup import nodes, edges
 from task2_graph_setup import L
 
 
